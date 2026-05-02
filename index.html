@@ -3,131 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lustro Revestimentos | Porcelanatos e Lastras de Alto Padrão</title>
+    <title>Lustro Revestimentos | Alto Padrão em Florianópolis</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        /* Estilos de Luxo - Lustro Revestimentos */
         :root {
-            --dark-bg: #1a1a1a;
-            --accent-color: #ffffff;
-            --text-gray: #b3b3b3;
-            --whatsapp-green: #25d366;
+            --primary-dark: #121212;
+            --accent-gold: #ffffff; /* Pode mudar para um tom dourado se preferir #d4af37 */
+            --bg-light: #f9f9f9;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
-        body { background-color: #ffffff; color: #333; line-height: 1.6; }
-        
-        /* Menu / Header */
-        header { background: var(--dark-bg); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #333; }
-        .logo-text { font-weight: 700; letter-spacing: 3px; font-size: 1.2rem; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: white; overflow-x: hidden; }
 
-        /* Seção Principal (Hero) */
+        /* HEADER & LOGO */
+        header { background: var(--primary-dark); padding: 40px 20px; text-align: center; border-bottom: 1px solid #333; }
+        .logo-box { 
+            border: 2px solid white; display: inline-block; padding: 15px 30px; 
+            animation: fadeInDown 1.5s; 
+        }
+        .logo-box h1 { color: white; letter-spacing: 8px; font-weight: 900; font-size: 2rem; }
+        .logo-box span { color: #888; font-size: 0.8rem; letter-spacing: 4px; display: block; margin-top: 5px; }
+
+        /* HERO SECTION */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80'); 
-            height: 85vh; background-size: cover; background-position: center; 
-            display: flex; align-items: center; justify-content: center; 
-            color: white; text-align: center; flex-direction: column; padding: 0 10%; 
+            height: 90vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), 
+            url('https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1920&q=80'); /* Foto de Piso de Luxo */
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px;
         }
-        .hero h1 { font-size: 3rem; font-weight: 300; margin-bottom: 20px; letter-spacing: 2px; }
-        .hero b { font-weight: 800; color: #fff; }
-        .hero p { font-size: 1.2rem; color: var(--text-gray); max-width: 700px; margin-bottom: 30px; }
+        .hero-content h2 { font-size: 3.5rem; font-weight: 300; margin-bottom: 20px; animation: fadeInUp 1.2s; }
+        .hero-content p { font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 40px; color: #ccc; animation: fadeInUp 1.6s; }
 
-        /* Botão Orçamento */
-        .btn-premium { 
-            background: white; color: black; padding: 18px 40px; 
-            text-decoration: none; border-radius: 0px; font-weight: bold; 
-            text-transform: uppercase; letter-spacing: 1px; transition: 0.4s;
-            border: 1px solid white;
+        /* GALERIA FOCADA EM PISOS */
+        .work-gallery { padding: 80px 10%; text-align: center; background: white; }
+        .work-gallery h2 { margin-bottom: 40px; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; }
+        .grid-work { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .work-item { height: 400px; overflow: hidden; position: relative; border-radius: 2px; }
+        .work-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; filter: grayscale(20%); }
+        .work-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
+        .work-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; text-align: left; opacity: 0; transition: 0.5s; }
+        .work-item:hover .work-overlay { opacity: 1; }
+
+        /* BOTÕES */
+        .btn-cta { 
+            padding: 20px 45px; background: white; color: black; text-decoration: none; 
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px; 
+            transition: 0.4s; animation: fadeInUp 2s; border: 1px solid white;
         }
-        .btn-premium:hover { background: transparent; color: white; }
+        .btn-cta:hover { background: transparent; color: white; }
 
-        /* Seção de Especialidades */
-        .specialties { padding: 80px 10%; text-align: center; background: #fafafa; }
-        .specialties h2 { margin-bottom: 50px; font-size: 2rem; text-transform: uppercase; letter-spacing: 2px; }
-        .grid-spec { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .spec-item { padding: 40px; background: white; border: 1px solid #eee; transition: 0.3s; }
-        .spec-item:hover { transform: translateY(-10px); border-color: #333; }
-        .spec-item i { font-size: 40px; margin-bottom: 20px; color: #222; }
-        .spec-item h3 { margin-bottom: 15px; }
-
-        /* Diferencial */
-        .diferencial { background: var(--dark-bg); color: white; padding: 80px 10%; display: flex; align-items: center; flex-wrap: wrap; gap: 40px; }
-        .dif-text { flex: 1; min-width: 300px; }
-        .dif-text h2 { font-size: 2.2rem; margin-bottom: 20px; }
-        .dif-text p { color: var(--text-gray); margin-bottom: 20px; }
-        .dif-image { flex: 1; min-width: 300px; height: 400px; background: url('https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&w=800&q=80') center/cover; }
-
-        /* WhatsApp Flutuante */
-        .whatsapp-float { 
-            position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); 
-            color: white; width: 65px; height: 65px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none; 
+        /* WHATSAPP FLOAT */
+        .whatsapp-fixed { 
+            position: fixed; bottom: 30px; right: 30px; background: #25d366; 
+            width: 60px; height: 60px; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; color: white; 
+            font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 1000;
         }
 
-        footer { background: #111; color: #555; text-align: center; padding: 40px; font-size: 0.9rem; }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-        }
+        footer { background: #000; color: #444; padding: 60px 20px; text-align: center; letter-spacing: 2px; }
+
+        /* ANIMAÇÕES AO ROLAR */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-text">LUSTRO REVESTIMENTOS</div>
-        <div style="font-size: 0.8rem; color: var(--text-gray);">FLORIANÓPOLIS E REGIÃO</div>
+        <div class="logo-box">
+            <h1>LUSTRO</h1>
+            <span>REVESTIMENTOS</span>
+        </div>
     </header>
 
     <section class="hero">
-        <p>Especialistas em Revestimentos de Luxo</p>
-        <h1><b>Porcelanatos</b> e <b>Lastras</b> de Alto Padrão</h1>
-        <p>Elevamos o nível do seu projeto com acabamentos impecáveis e materiais selecionados. Qualidade superior na entrega e execução.</p>
-        <a href="https://api.whatsapp.com/send?phone=5548984617196&text=Olá! Gostaria de solicitar um orçamento sem compromisso para meu projeto." class="btn-premium" target="_blank">
-            Solicitar Orçamento sem Compromisso
-        </a>
+        <div class="hero-content">
+            <p>FLORIANÓPOLIS | SC</p>
+            <h2>Pisos e Lastras de <br><b>Alto Padrão</b></h2>
+            <a href="https://api.whatsapp.com/send?phone=5548984617196&text=Olá Kauã, vim pelo site e gostaria de um orçamento." class="btn-cta">Solicitar Orçamento</a>
+        </div>
     </section>
 
-    <section class="specialties">
-        <h2>Nossa Expertise</h2>
-        <div class="grid-spec">
-            <div class="spec-item">
-                <i class="fas fa-layer-group"></i>
-                <h3>Lastras</h3>
-                <p>Instalação técnica de grandes formatos, garantindo continuidade visual e sofisticação.</p>
+    <section class="work-gallery">
+        <h2 class="reveal">Trabalhos em Destaque</h2>
+        <div class="grid-work">
+            <div class="work-item reveal">
+                <img src="https://images.unsplash.com/photo-1599619351208-3e5c8395d824?auto=format&fit=crop&w=600&q=80" alt="Porcelanato">
+                <div class="work-overlay"><h4>Porcelanatos Premium</h4><p>Acabamento espelhado.</p></div>
             </div>
-            <div class="spec-item">
-                <i class="fas fa-gem"></i>
-                <h3>Alto Padrão</h3>
-                <p>Trabalhamos com os melhores porcelanatos do mercado para clientes exigentes.</p>
+            <div class="work-item reveal">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80" alt="Lastras">
+                <div class="work-overlay"><h4>Lastras de Grande Formato</h4><p>Mínimo de emendas, máximo de luxo.</p></div>
             </div>
-            <div class="spec-item">
-                <i class="fas fa-truck"></i>
-                <h3>Entrega Garantida</h3>
-                <p>Compromisso total com o cronograma da sua obra e limpeza no serviço.</p>
+            <div class="work-item reveal">
+                <img src="https://images.unsplash.com/photo-1523413555809-0fb1d4da238d?auto=format&fit=crop&w=600&q=80" alt="Marmorizado">
+                <div class="work-overlay"><h4>Marmorizados</h4><p>Elegância atemporal.</p></div>
             </div>
         </div>
     </section>
 
-    <section class="diferencial">
-        <div class="dif-text">
-            <h2>O Diferencial da <br><b>Lustro Revestimentos</b></h2>
-            <p>Atendendo Florianópolis e região, somos reconhecidos pela precisão no corte e no assentamento. Nosso foco é transformar ambientes com a nobreza dos revestimentos de alto padrão.</p>
-            <p><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Atendimento personalizado</p>
-            <p><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Orçamentos rápidos e detalhados</p>
-            <p><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Mão de obra especializada</p>
+    <section style="background: #111; color: white; padding: 100px 10%; text-align: center;">
+        <div class="reveal">
+            <h2 style="font-weight: 300; font-size: 2.5rem; margin-bottom: 30px;">Qualidade em cada milímetro.</h2>
+            <p style="color: #888; max-width: 600px; margin: 0 auto 40px;">Especialistas em assentamento técnico para ambientes que exigem perfeição. Atendemos toda Florianópolis e região.</p>
+            <a href="https://api.whatsapp.com/send?phone=5548984617196" style="color: white; text-decoration: underline;">Falar diretamente no WhatsApp</a>
         </div>
-        <div class="dif-image"></div>
     </section>
 
     <footer>
-        <p>LUSTRO REVESTIMENTOS &copy; 2026 - Qualidade em cada detalhe.</p>
-        <p>Florianópolis, Santa Catarina</p>
+        <p>LUSTRO REVESTIMENTOS - 2026</p>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=5548984617196" class="whatsapp-float" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=5548984617196" class="whatsapp-fixed" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script>
+        // Script para ativar animação ao rolar a página
+        window.addEventListener('scroll', function() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
