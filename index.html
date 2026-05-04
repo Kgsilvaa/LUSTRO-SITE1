@@ -3,125 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lustro Revestimentos | Portfólio Premium</title>
+    <title>Lustro Revestimentos | Especialista em Lastras</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #111; --text: #333; --bg: #ffffff; --soft-gray: #f9f9f9; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); overflow-x: hidden; scroll-behavior: smooth; }
-
-        /* HEADER */
-        header { padding: 40px; text-align: center; }
-        .logo-circle {
-            width: 130px; height: 130px; margin: 0 auto;
-            border-radius: 50%; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.5s;
+        :root { 
+            --brand-gray: #4a4541; /* Cinza amarronzado luxo */
+            --gold-soft: #c5a880; 
+            --white: #ffffff;
+            --overlay: rgba(74, 69, 65, 0.9);
         }
-        .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
-
-        /* HERO COM ZOOM SUAVE */
-        .hero {
-            height: 85vh; position: relative; display: flex; align-items: center; justify-content: center;
-            overflow: hidden; background: #000;
-        }
-        .hero-img {
-            position: absolute; width: 100%; height: 100%;
-            background-image: url('WhatsApp Image 2026-05-04 at 18.25.11.jpeg');
-            background-size: cover; background-position: center;
-            opacity: 0.6; animation: zoomInHero 20s infinite alternate;
-        }
-        @keyframes zoomInHero { from { transform: scale(1); } to { transform: scale(1.15); } }
-        .hero-content { position: relative; z-index: 2; text-align: center; color: white; }
-        .hero-content h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 100; letter-spacing: 15px; text-transform: uppercase; }
-
-        /* GALERIA MASONRY PROFISSIONAL */
-        .portfolio { padding: 80px 4%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
-        .grid-item { 
-            position: relative; height: 500px; overflow: hidden; 
-            opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-        }
-        .grid-item.active { opacity: 1; transform: translateY(0); }
-        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
-        .grid-item:hover img { transform: scale(1.1); }
         
-        .overlay {
-            position: absolute; inset: 0; background: rgba(0,0,0,0.3);
-            display: flex; align-items: flex-end; padding: 30px; opacity: 0; transition: 0.5s;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--brand-gray); 
+            color: var(--white); 
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
         }
-        .grid-item:hover .overlay { opacity: 1; }
-        .overlay span { color: white; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; }
 
-        /* CTA */
-        .cta { padding: 100px 10%; text-align: center; background: var(--soft-gray); }
-        .btn-lux {
-            display: inline-block; padding: 20px 50px; border: 1px solid #111;
-            text-decoration: none; color: #111; text-transform: uppercase;
-            letter-spacing: 4px; font-size: 0.75rem; transition: 0.4s;
+        /* BACKGROUND PERSONALIZADO COM LOGO SUTIL */
+        .bg-texture {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(var(--overlay), var(--overlay)), url('logo lustro.jpeg');
+            background-size: 300px; background-repeat: repeat; opacity: 0.05; z-index: -1;
         }
-        .btn-lux:hover { background: #000; color: #fff; }
 
-        /* FLOAT WHATSAPP */
-        .ws-float { position: fixed; bottom: 30px; right: 30px; background: #000; color: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 24px; z-index: 1000; transition: 0.3s; }
-        .ws-float:hover { transform: scale(1.1); background: #25d366; }
+        /* NAVEGAÇÃO */
+        nav { padding: 30px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .nav-logo { width: 100px; border-radius: 50%; }
 
-        footer { padding: 50px; text-align: center; font-size: 0.65rem; letter-spacing: 4px; color: #aaa; text-transform: uppercase; }
+        /* HERO SECTION */
+        .hero { height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 8vw, 4.5rem); letter-spacing: 10px; margin-bottom: 20px; font-weight: 400; }
+        .hero p { font-size: 1rem; text-transform: uppercase; letter-spacing: 4px; opacity: 0.8; margin-bottom: 40px; }
+        
+        .btn-budget {
+            padding: 20px 50px; background: transparent; border: 1px solid var(--white);
+            color: var(--white); text-decoration: none; text-transform: uppercase;
+            letter-spacing: 3px; font-weight: 600; transition: 0.5s;
+        }
+        .btn-budget:hover { background: var(--white); color: var(--brand-gray); }
+
+        /* GALERIA DE SERVIÇOS (FOTOS REAIS) */
+        .services { padding: 100px 5%; background: var(--white); color: var(--brand-gray); }
+        .section-title { text-align: center; margin-bottom: 80px; }
+        .section-title h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; letter-spacing: 5px; text-transform: uppercase; }
+        .section-title div { width: 60px; height: 2px; background: var(--brand-gray); margin: 20px auto; }
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { position: relative; overflow: hidden; background: #000; border-radius: 2px; }
+        .service-card img { width: 100%; height: 450px; object-fit: cover; transition: 1s; opacity: 0.9; }
+        .service-card:hover img { transform: scale(1.1); opacity: 1; }
+        
+        .service-info { 
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white;
+        }
+        .service-info h4 { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* FORMULÁRIO / CONTATO */
+        .contact-area { padding: 100px 10%; text-align: center; }
+        .contact-area h3 { font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 30px; }
+        .contact-area p { margin-bottom: 50px; opacity: 0.7; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        /* FOOTER */
+        footer { padding: 50px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.8rem; letter-spacing: 2px; }
+
+        /* WHATSAPP FLOAT */
+        .ws-float { 
+            position: fixed; bottom: 40px; right: 40px; background: #25d366; 
+            width: 65px; height: 65px; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; color: white; 
+            font-size: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1000;
+        }
+        
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-circle">
-            <img src="logo lustro.jpeg" alt="Lustro Revestimentos">
-        </div>
-    </header>
+    <div class="bg-texture"></div>
+
+    <nav>
+        <img src="logo lustro.jpeg" class="nav-logo" alt="Lustro">
+    </nav>
 
     <section class="hero">
-        <div class="hero-img"></div>
-        <div class="hero-content">
-            <h1>Lustro</h1>
+        <h1>LUSTRO</h1>
+        <p>A perfeição em cada detalhe do seu piso</p>
+        <a href="https://api.whatsapp.com/send?phone=5548984617196&text=Olá! Gostaria de solicitar um orçamento para revestimento." class="btn-budget">Solicitar Orçamento</a>
+    </section>
+
+    <section class="services">
+        <div class="section-title">
+            <h2>Nossos Serviços</h2>
+            <div></div>
+            <p>Especialistas em Lastras e Porcelanatos de Alto Padrão em Florianópolis</p>
+        </div>
+
+        <div class="service-grid">
+            <!-- Galeria usando suas fotos como referência de serviço -->
+            <div class="service-card">
+                <img src="WhatsApp Image 2026-05-04 at 18.25.14.jpeg">
+                <div class="service-info"><h4>Assentamento Técnico</h4></div>
+            </div>
+            <div class="service-card">
+                <img src="WhatsApp Image 2026-05-04 at 18.25.15.jpeg">
+                <div class="service-info"><h4>Cozinhas em Porcelanato</h4></div>
+            </div>
+            <div class="service-card">
+                <img src="WhatsApp Image 2026-05-04 at 18.25.14 (1).jpeg">
+                <div class="service-info"><h4>Grandes Formatos</h4></div>
+            </div>
+            <div class="service-card">
+                <img src="WhatsApp Image 2026-05-04 at 18.25.15 (1).jpg">
+                <div class="service-info"><h4>Banheiros de Luxo</h4></div>
+            </div>
+            <div class="service-card">
+                <img src="WhatsApp Image 2026-05-04 at 18.25.14 (2).jpeg">
+                <div class="service-info"><h4>Áreas Externas</h4></div>
+            </div>
+            <div class="service-card">
+                <img src="WhatsApp Image 2026-05-04 at 18.25.16.jpeg">
+                <div class="service-info"><h4>Acabamento Fino</h4></div>
+            </div>
         </div>
     </section>
 
-    <section class="portfolio">
-        <div class="grid">
-            <div class="grid-item"><img src="WhatsApp Image 2026-05-04 at 18.25.14.jpeg"><div class="overlay"><span>Alta Performance</span></div></div>
-            <div class="grid-item"><img src="WhatsApp Image 2026-05-04 at 18.25.15.jpeg"><div class="overlay"><span>Design de Interiores</span></div></div>
-            <div class="grid-item"><img src="WhatsApp Image 2026-05-04 at 18.25.14 (1).jpeg"><div class="overlay"><span>Precisão Técnica</span></div></div>
-            <div class="grid-item"><img src="WhatsApp Image 2026-05-04 at 18.25.15 (1).jpg"><div class="overlay"><span>Acabamento Fino</span></div></div>
-            <div class="grid-item"><img src="WhatsApp Image 2026-05-04 at 18.25.14 (2).jpeg"><div class="overlay"><span>Áreas Nobres</span></div></div>
-            <div class="grid-item"><img src="WhatsApp Image 2026-05-04 at 18.25.14 (3).jpg"><div class="overlay"><span>Especialista em Lastras</span></div></div>
-            <div class="grid-item"><img src="WhatsApp Image 2026-05-04 at 18.25.16.jpeg"><div class="overlay"><span>Qualidade Garantida</span></div></div>
-            <div class="grid-item"><img src="WhatsApp Image 2026-05-04 at 18.25.16 (1).jpeg"><div class="overlay"><span>Florianópolis & Região</span></div></div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <a href="https://api.whatsapp.com/send?phone=5548984617196" class="btn-lux">Agendar Orçamento Especializado</a>
+    <section class="contact-area">
+        <h3>Transforme seu ambiente</h3>
+        <p>Trabalhamos com mão de obra especializada para garantir que seu investimento em pisos de luxo tenha o resultado esperado.</p>
+        <a href="https://api.whatsapp.com/send?phone=5548984617196" class="btn-budget">Falar com Especialista</a>
     </section>
 
     <footer>
-        Lustro Revestimentos | 2025
+        LUSTRO REVESTIMENTOS &copy; 2026 | FLORIANÓPOLIS - SC
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=5548984617196" class="ws-float">
+    <a href="https://api.whatsapp.com/send?phone=5548984617196" class="ws-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.grid-item').forEach(item => {
-            observer.observe(item);
-        });
-    </script>
 </body>
 </html>
