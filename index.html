@@ -3,144 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lustro Revestimentos | Alto Padrão em Florianópolis</title>
+    <title>Lustro Revestimentos | Alto Padrão e Lastras</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --dark: #1a1a1a;
-            --gold: #c5a059; /* Tom sutil para detalhes premium */
-            --white: #ffffff;
-            --gray-light: #f4f4f4;
-        }
-
+        :root { --dark: #121212; --white: #ffffff; --gray: #f8f8f8; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: var(--white); color: var(--dark); overflow-x: hidden; }
+        body { background-color: var(--white); color: var(--dark); line-height: 1.6; }
 
-        /* HEADER & LOGO REDONDA */
-        header { padding: 30px; text-align: center; background: var(--white); }
-        .logo-container {
-            width: 150px; height: 150px;
-            background: var(--dark);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            animation: fadeIn 1.5s ease;
+        /* HEADER E LOGO */
+        header { padding: 40px 20px; text-align: center; background: var(--white); }
+        .logo-container { width: 140px; height: 140px; margin: 0 auto; border-radius: 50%; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border: 2px solid #eee; }
+        .logo-container img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* HERO - USANDO UMA DAS SUAS FOTOS REAIS */
+        .hero { 
+            height: 80vh; 
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('WhatsApp Image 2026-05-04 at 18.25.11.jpeg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
         }
-        .logo-container img { width: 80%; height: auto; } /* Aqui você usará a logo lustro.png */
-        .logo-placeholder { color: white; text-align: center; font-weight: bold; font-size: 0.8rem; letter-spacing: 2px; }
+        .hero h1 { font-size: 2.5rem; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; animation: fadeInUp 1s; }
 
-        /* HERO SECTION */
-        .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; justify-content: center;
-            flex-direction: column; color: white; text-align: center;
-        }
-        .hero h2 { font-size: 2.5rem; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; animation: fadeInUp 1s; }
-        .hero p { font-size: 1rem; letter-spacing: 3px; animation: fadeInUp 1.5s; }
+        /* DIFERENCIAIS */
+        .features { padding: 60px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; background: var(--gray); text-align: center; }
+        .feature-card i { font-size: 24px; margin-bottom: 15px; display: block; }
+        .feature-card h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        .feature-card p { font-size: 0.9rem; color: #555; }
 
-        /* CARACTERÍSTICAS (Comprometimento e Limpeza) */
-        .values { padding: 80px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; background: var(--gray-light); }
-        .value-card i { font-size: 30px; margin-bottom: 20px; color: var(--dark); }
-        .value-card h3 { text-transform: uppercase; font-size: 1rem; letter-spacing: 2px; margin-bottom: 15px; }
-        .value-card p { font-size: 0.9rem; color: #666; line-height: 1.8; }
+        /* GALERIA DE TRABALHOS REAIS */
+        .gallery { padding: 80px 5%; background: #fff; }
+        .gallery h2 { text-align: center; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 4px; font-weight: 400; }
+        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .grid-item { height: 400px; overflow: hidden; position: relative; border-radius: 4px; }
+        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .grid-item:hover img { transform: scale(1.08); }
+        .tag { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.6); color: white; padding: 5px 15px; font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; }
 
-        /* GALERIA DE REFERÊNCIA - PISOS E PAREDES */
-        .gallery { padding: 80px 5%; }
-        .gallery-title { text-align: center; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 4px; font-weight: 300; }
-        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .grid-item { height: 450px; background-size: cover; background-position: center; position: relative; overflow: hidden; transition: 0.5s; }
-        .grid-item:hover { transform: scale(1.02); }
-        .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: flex-end; padding: 30px; color: white; }
-
-        /* CTA FINAL */
-        .cta-section { padding: 100px 10%; text-align: center; background: var(--dark); color: white; }
-        .btn-whatsapp { 
-            display: inline-block; padding: 20px 50px; background: white; color: var(--dark); 
-            text-decoration: none; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;
-            transition: 0.3s; margin-top: 30px;
-        }
-        .btn-whatsapp:hover { background: #ddd; }
+        /* CTA */
+        .cta { padding: 100px 10%; text-align: center; background: var(--dark); color: white; }
+        .btn-ws { display: inline-block; padding: 18px 40px; background: white; color: var(--dark); text-decoration: none; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 25px; transition: 0.3s; }
+        .btn-ws:hover { background: #ccc; }
 
         /* WHATSAPP FLOAT */
-        .whatsapp-fixed { 
-            position: fixed; bottom: 30px; right: 30px; background: #25d366; 
-            width: 60px; height: 60px; border-radius: 50%; display: flex; 
-            align-items: center; justify-content: center; color: white; font-size: 30px; z-index: 1000;
-        }
+        .ws-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 999; }
 
-        /* ANIMAÇÕES */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-
-        footer { padding: 40px; text-align: center; font-size: 0.8rem; letter-spacing: 2px; color: #999; }
+        
+        footer { padding: 30px; text-align: center; font-size: 0.7rem; color: #999; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
     <header>
-        <div <div class="logo-container">
-        <img src="logo lustro.png" alt="Lustro Revestimentos Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-    </div>
-    ```
+        <div class="logo-container">
+            <img src="logo lustro.png" alt="Lustro Logo">
         </div>
     </header>
 
     <section class="hero">
-        <h2>Excelência em Detalhes</h2>
-        <p>FLORIANÓPOLIS | SC</p>
+        <h1>Excelência em <br><b>Lastras e Pisos</b></h1>
     </section>
 
-    <section class="values">
-        <div class="value-card reveal">
+    <section class="features">
+        <div class="feature-card reveal">
             <i class="fas fa-broom"></i>
-            <h3>Obra Limpa</h3>
-            <p>Respeito ao seu patrimônio. Mantemos a organização e a limpeza impecável do início ao fim.</p>
+            <h3>Limpeza Rigorosa</h3>
+            <p>Entrega da obra limpa e organizada, respeitando cada detalhe do ambiente.</p>
         </div>
-        <div class="value-card reveal">
-            <i class="fas fa-check-double"></i>
+        <div class="feature-card reveal">
+            <i class="fas fa-handshake"></i>
             <h3>Comprometimento</h3>
-            <p>Sua obra tratada com prioridade absoluta. Cumprimento rigoroso de prazos e especificações técnicas.</p>
+            <p>Prazos levados a sério e execução técnica conforme as normas dos fabricantes.</p>
         </div>
-        <div class="value-card reveal">
-            <i class="fas fa-gem"></i>
-            <h3>Alto Padrão</h3>
-            <p>Especialistas em Lastras e Porcelanatos que exigem técnica refinada e acabamento de luxo.</p>
+        <div class="feature-card reveal">
+            <i class="fas fa-expand-arrows-alt"></i>
+            <h3>Grandes Formatos</h3>
+            <p>Especialistas no manuseio e assentamento de lastras e porcelanatos premium.</p>
         </div>
     </section>
 
     <section class="gallery">
-        <h2 class="gallery-title">Nossas Especialidades</h2>
+        <h2>Nosso Portfólio Real</h2>
         <div class="grid-gallery">
-            <!-- Use fotos que remetam às que você enviou -->
-            <div class="grid-item reveal" style="background-image: url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=80');">
-                <div class="overlay"><span>Porcelanatos de Grandes Formatos</span></div>
-            </div>
-            <div class="grid-item reveal" style="background-image: url('https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=800&q=80');">
-                <div class="overlay"><span>Revestimentos de Parede Premium</span></div>
-            </div>
-            <div class="grid-item reveal" style="background-image: url('https://images.unsplash.com/photo-1523413555809-0fb1d4da238d?auto=format&fit=crop&w=800&q=80');">
-                <div class="overlay"><span>Acabamento Fino em Áreas Nobres</span></div>
-            </div>
+            <div class="grid-item reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.16 (1).jpeg"><span class="tag">Obra em Andamento</span></div>
+            <div class="grid-item reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.16.jpeg"><span class="tag">Acabamento Fino</span></div>
+            <div class="grid-item reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.15 (1).jpg"><span class="tag">Lastras de Luxo</span></div>
+            <div class="grid-item reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.15.jpeg"><span class="tag">Pisos de Alto Padrão</span></div>
+            <div class="grid-item reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.14 (3).jpg"><span class="tag">Detalhamento Técnico</span></div>
+            <div class="grid-item reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.14 (2).jpeg"><span class="tag">Qualidade Impecável</span></div>
+            <div class="grid-item reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.14 (1).jpeg"><span class="tag">Execução Florianópolis</span></div>
+            <div class="grid-item reveal"><img src="WhatsApp Image 2026-05-04 at 18.25.14.jpeg"><span class="tag">Referência em Lastras</span></div>
         </div>
     </section>
 
-    <section class="cta-section">
-        <h2 class="reveal">Pronto para elevar o nível do seu projeto?</h2>
-        <p class="reveal">Solicite um orçamento sem compromisso e garanta a melhor execução de Florianópolis.</p>
-        <a href="https://api.whatsapp.com/send?phone=5548984617196&text=Olá Kauã, gostaria de um orçamento para meu projeto de revestimento." class="btn-whatsapp reveal">Iniciar Orçamento</a>
+    <section class="cta">
+        <h2 class="reveal">Qualidade que seu projeto merece.</h2>
+        <p class="reveal">Atendemos Florianópolis e toda a região com mão de obra especializada.</p>
+        <a href="https://api.whatsapp.com/send?phone=5548984617196&text=Olá! Vi o trabalho da Lustro no site e gostaria de um orçamento." class="btn-ws reveal">Solicitar Orçamento Grátis</a>
     </section>
 
     <footer>
-        LUSTRO REVESTIMENTOS &copy; 2026 - TODOS OS DIREITOS RESERVADOS.
+        LUSTRO REVESTIMENTOS &copy; 2026 | FLORIANÓPOLIS - SC
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=5548984617196" class="whatsapp-fixed" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=5548984617196" class="ws-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -150,9 +119,7 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var revealTop = reveals[i].getBoundingClientRect().top;
-                if (revealTop < windowHeight - 100) {
-                    reveals[i].classList.add('active');
-                }
+                if (revealTop < windowHeight - 100) { reveals[i].classList.add('active'); }
             }
         });
     </script>
